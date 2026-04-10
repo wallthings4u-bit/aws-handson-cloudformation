@@ -18,10 +18,25 @@ Resources:
         - Key: Name
           Value: "subnet1formCE"
   secGroupName:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: "My security group"
+    Type: "AWS::EC2::SecurityGroup"
+    Properties: 
+      GroupName: "GroupName-SG"
+      GroupDescription: "GroupDescription-SG"
       VpcId: !Ref MyVPC2
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: "0.0.0.0/0"
       Tags:
         - Key: Name
           Value: "SGfromCF"
+Outputs:
+  subnet1:
+    Value: !Ref subnetName
+    Export:
+      Name: Subnet1Name
+  SG1:
+    Value: !Ref secGroupName
+    Export:
+      Name: SG1Name
