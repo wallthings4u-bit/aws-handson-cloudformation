@@ -8,3 +8,12 @@ Resources:
       Tags:
         - Key: Name
           Value: "MyVPCfromCF"
+subnetName:
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: "ap-northeast-1a"
+      VpcId: !Ref MyVPC2
+      CidrBlock: "10.0.8.0/24"
+      Tags:
+        - Key: Name
+          Value: "subnet1formCE"
