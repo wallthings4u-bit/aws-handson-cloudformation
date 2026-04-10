@@ -17,3 +17,11 @@ Resources:
       Tags:
         - Key: Name
           Value: "subnet1formCE"
+  secGroupName:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "My security group"
+      VpcId: !Ref MyVPC2
+      Tags:
+        - Key: Name
+          Value: "SGfromCF"
